@@ -4,16 +4,16 @@ namespace Sawyer.Utils {
 	public static class Vectors {
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of two vectors
+		 * Returns the pointwise product (Hadamard product) of two vectors
 		 * </summary>
 		 */
-		public static Vector2 PointwiseProduct(Vector2 vectorA, Vector2 vectorB) {
-			return new Vector2(vectorA.x * vectorB.x, vectorA.y * vectorB.y);
+		public static Vector2 PointwiseProduct(Vector2 one, Vector2 two) {
+			return new Vector2(one.x * two.x, one.y * two.y);
 		}
 
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of a vector and 2 vector points
+		 * Returns the pointwise product (Hadamard product) of a vector and 2 vector points
 		 * </summary>
 		 */
 		public static Vector2 PointwiseProduct(Vector2 vector, float x, float y) {
@@ -22,16 +22,16 @@ namespace Sawyer.Utils {
 
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of two vectors
+		 * Returns the pointwise product (Hadamard product) of two vectors
 		 * </summary>
 		 */
-		public static Vector3 PointwiseProduct(Vector3 vectorA, Vector3 vectorB) {
-			return new Vector3(vectorA.x * vectorB.x, vectorA.y * vectorB.y, vectorA.z * vectorB.z);
+		public static Vector3 PointwiseProduct(Vector3 one, Vector3 two) {
+			return new Vector3(one.x * two.x, one.y * two.y, one.z * two.z);
 		}
 
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of a vector and 3 vector points
+		 * Returns the pointwise product (Hadamard product) of a vector and 3 vector points
 		 * </summary>
 		 */
 		public static Vector3 PointwiseProduct(Vector3 vector, float x, float y, float z) {
@@ -40,7 +40,7 @@ namespace Sawyer.Utils {
 
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of two vectors
+		 * Returns the pointwise product (Hadamard product) of two vectors
 		 * </summary>
 		 */
 		public static Vector4 PointwiseProduct(Vector4 one, Vector4 two) {
@@ -49,7 +49,7 @@ namespace Sawyer.Utils {
 
 		/**
 		 * <summary>
-		 * Pointwise product (Hadamard product) of a vector and 4 vector points
+		 * Returns the pointwise product (Hadamard product) of a vector and 4 vector points
 		 * </summary>
 		 */
 		public static Vector4 PointwiseProduct(Vector4 vector, float x, float y, float z, float w) {
