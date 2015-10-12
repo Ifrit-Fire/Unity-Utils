@@ -7,8 +7,10 @@ namespace Sawyer.Utils {
 		 * Returns /self/ or new instance if prefab.
 		 * </summary>
 		 */
-		public static GameObject InstantiateCheck(this GameObject self) {
-			return (self.activeInHierarchy) ? self : Object.Instantiate(self);
+		public static void Instantiate(this GameObject self) {
+			if (!self.activeInHierarchy) {
+				Object.Instantiate(self);
+			}
 		}
 	}
 }

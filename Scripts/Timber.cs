@@ -15,14 +15,25 @@ namespace Sawyer.Utils {
 				if (gameObject) {
 					collider = gameObject.GetComponent<Collider>();
 				} else {
-					Debug.Log("No Collider or GameObject detected");
+					Debug.LogError("No Collider or GameObject detected");
 					return;
 				}
 			}
+
 			string strPercision = "F" + percision;
 			Debug.Log("Collider: " + collider.GetInstanceID() + "\nBounds " + collider.bounds.ToString(strPercision) +
 				"\nMax " + collider.bounds.max.ToString(strPercision) + " Min " + collider.bounds.min.ToString(strPercision) +
-				" Size " + collider.bounds.size.ToString(strPercision));
+				" Size " + collider.bounds.size.ToString(strPercision) + "\nTrigger " + collider.isTrigger +
+				" Enabled " + collider.enabled);
+		}
+
+		/** 
+		* <summary>
+		* Logs various details on self. Optionally, use the percision param to adjust string output.
+		* </summary>
+		*/
+		public static void Log(this Collider self, int percision = PERCISION) {
+			LogCollider(self, percision: percision);
 		}
 
 		/** 
@@ -36,14 +47,24 @@ namespace Sawyer.Utils {
 				if (gameObject) {
 					renderer = gameObject.GetComponent<Renderer>();
 				} else {
-					Debug.Log("No Renderer or GameObject detected");
+					Debug.LogError("No Renderer or GameObject detected");
 					return;
 				}
 			}
 			string strPercision = "F" + percision;
 			Debug.Log("Renderer: " + renderer.GetInstanceID() + "\nBounds " + renderer.bounds.ToString(strPercision) +
 				"\nMax " + renderer.bounds.max.ToString(strPercision) + " Min " + renderer.bounds.min.ToString(strPercision) +
-				" Size " + renderer.bounds.size.ToString(strPercision));
+				" Size " + renderer.bounds.size.ToString(strPercision) + "\nVisible " + renderer.isVisible +
+				" Enabled " + renderer.enabled);
+		}
+
+		/** 
+		* <summary>
+		* Logs various details on self. Optionally, use the percision param to adjust string output.
+		* </summary>
+		*/
+		public static void Log(this Renderer self, int percision = PERCISION) {
+			LogRenderer(self, percision: percision);
 		}
 
 		/** 
@@ -57,7 +78,7 @@ namespace Sawyer.Utils {
 				if (gameObject) {
 					transform = gameObject.GetComponent<Transform>();
 				} else {
-					Debug.Log("No Renderer or GameObject detected");
+					Debug.LogError("No Renderer or GameObject detected");
 					return;
 				}
 			}
@@ -66,6 +87,15 @@ namespace Sawyer.Utils {
 				"\nGlobal Pos " + transform.position.ToString(strPercision) + " Local Pos " + transform.localPosition.ToString(strPercision) +
 				"\nGlobal Rot " + transform.rotation.ToString(strPercision) + " Local Pos " + transform.localRotation.ToString(strPercision) +
 				"\nLossy Scale " + transform.lossyScale.ToString(strPercision) + " Local Scale " + transform.localScale.ToString(strPercision));
+		}
+
+		/** 
+		* <summary>
+		* Logs various details on self. Optionally, use the percision param to adjust string output.
+		* </summary>
+		*/
+		public static void Log(this Transform self, int percision = PERCISION) {
+			LogTransform(self, percision: percision);
 		}
 
 		/**
@@ -77,6 +107,15 @@ namespace Sawyer.Utils {
 			string strPercision = "F" + percision;
 			Debug.Log("Vector: " + vector.ToString(strPercision) + " Normal " + vector.normalized.ToString(strPercision) +
 				"\nMag " + vector.magnitude.ToString(strPercision) + " Sqr Mag " + vector.sqrMagnitude.ToString(strPercision));
+		}
+
+		/** 
+		* <summary>
+		* Logs various details on self. Optionally, use the percision param to adjust string output.
+		* </summary>
+		*/
+		public static void Log(this Vector3 self, int percision = PERCISION) {
+			LogVector3(self, percision: percision);
 		}
 	}
 }
