@@ -6,10 +6,10 @@ For use with Unity 5+ only.  It may work for Unity 4, however that remains untes
 
 # Features
 **Timber**
-- A verbose logging system. Provides convenience logging for various objects.
+- A verbose logging system. Provides convenience logging extensions for various objects.
 
 **Vectors**
-- Adds additional Vector math routines, both statically and as extensions.
+- Adds additional Vector math routines as extensions.
 
 **GameObjects**
-- Just a convenience method for determining if a GO needs instantiating or not.
+- Just a convenience method extension for determining if a GO needs instantiating or not.
