@@ -3,6 +3,7 @@
 namespace Sawyer.Utils.UnitTest {
 	public class UnitTestTimberCube : MonoBehaviour {
 
+		private GameObject mGameObject;
 		private Rigidbody mRigidbody;
 		private Collider mCollider;
 		private Collision mCollision;
@@ -17,21 +18,25 @@ namespace Sawyer.Utils.UnitTest {
 			mCollider = GetComponent<Collider>();
 			mRenderer = GetComponent<Renderer>();
 			mTransform = GetComponent<Transform>();
+			mGameObject = gameObject;
 
+			Vector4 vector4 = Vector4.one;
+			vector4.Log();
 			Vector3 vector3 = mTransform.localScale;
 			vector3.Log();
-			Timber.LogVector3(vector3);
+			Vector2 vector2 = Vector2.right;
+			vector2.Log();
 		}
 
 		void Start() {
 			mCollider.Log();
-			Timber.LogCollider(mCollider);
+			mGameObject.LogCollider();
 
 			mRenderer.Log();
-			Timber.LogRenderer(mRenderer);
+			mGameObject.LogRenderer();
 
 			mTransform.Log();
-			Timber.LogTransform(mTransform);
+			mGameObject.LogTransform();
 		}
 
 		void OnCollisionEnter(Collision collision) {
@@ -39,7 +44,6 @@ namespace Sawyer.Utils.UnitTest {
 				return;
 
 			mHasLoggedCollision = true;
-
 		}
 	}
 }
