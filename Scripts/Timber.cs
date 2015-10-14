@@ -93,31 +93,9 @@ namespace Sawyer.Utils {
 		* Logs various details on self. Optionally, use the percision param to adjust string output.
 		* </summary>
 		*/
-		public static void Log(this Vector2 self, int percision = PERCISION) {
-			string strPercision = "F" + percision;
-			Debug.Log("Vector2: " + self.ToString(strPercision) + " Normal " + self.normalized.ToString(strPercision) +
-				"\nMag " + self.magnitude.ToString(strPercision) + " Sqr Mag " + self.sqrMagnitude.ToString(strPercision));
-		}
-
-		/** 
-		* <summary>
-		* Logs various details on self. Optionally, use the percision param to adjust string output.
-		* </summary>
-		*/
 		public static void Log(this Vector3 self, int percision = PERCISION) {
 			string strPercision = "F" + percision;
 			Debug.Log("Vector3: " + self.ToString(strPercision) + " Normal " + self.normalized.ToString(strPercision) +
-				"\nMag " + self.magnitude.ToString(strPercision) + " Sqr Mag " + self.sqrMagnitude.ToString(strPercision));
-		}
-
-		/** 
-		* <summary>
-		* Logs various details on self. Optionally, use the percision param to adjust string output.
-		* </summary>
-		*/
-		public static void Log(this Vector4 self, int percision = PERCISION) {
-			string strPercision = "F" + percision;
-			Debug.Log("Vector4: " + self.ToString(strPercision) + " Normal " + self.normalized.ToString(strPercision) +
 				"\nMag " + self.magnitude.ToString(strPercision) + " Sqr Mag " + self.sqrMagnitude.ToString(strPercision));
 		}
 	}

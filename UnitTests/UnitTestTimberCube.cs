@@ -21,11 +21,11 @@ namespace Sawyer.Utils.UnitTest {
 			mGameObject = gameObject;
 
 			Vector4 vector4 = Vector4.one;
-			vector4.Log();
+			//vector4.Log();
 			Vector3 vector3 = mTransform.localScale;
 			vector3.Log();
 			Vector2 vector2 = Vector2.right;
-			vector2.Log();
+			//vector2.Log();
 		}
 
 		void Start() {
