@@ -1,7 +1,73 @@
 using UnityEngine;
 
 namespace Sawyer.Utils {
+
 	public static class Vectors {
+		/**
+		* <summary>
+		* Returns the scaling vector needed to go from one vector to another vector. Optionally provide a ScaleMode to determine
+		* how the scaling should be performed.
+		* </summary>
+		*/
+		public static Vector2 ScaleFromTo(Vector2 from, Vector2 to, ScaleMode scaleMode = ScaleMode.StretchToFill) {
+			Vector2 scale = Vector2.one;
+			scale.x = to.x / from.x;
+			scale.y = to.y / from.y;
+
+			switch (scaleMode) {
+			case ScaleMode.ScaleAndCrop:
+				scale.x = scale.y = Mathf.Max(scale.x, scale.y);
+				break;
+
+			case ScaleMode.ScaleToFit:
+				scale.x = scale.y = Mathf.Min(scale.x, scale.y);
+				break;
+
+			case ScaleMode.StretchToFill:
+				//Do nothing
+				break;
+
+			default:
+				Debug.LogException(new System.NotImplementedException("The Received ScaleMode." + scaleMode.ToString() + " is not implemented."));
+				break;
+			}
+
+			return scale;
+		}
+
+		/**
+		* <summary>
+		* Returns the scaling vector needed to go from one vector to another vector. Optionally provide a ScaleMode to determine
+		* how the scaling should be performed.
+		* </summary>
+		*/
+		public static Vector3 ScaleFromTo(Vector3 from, Vector3 to, ScaleMode scaleMode = ScaleMode.StretchToFill) {
+			Vector3 scale = Vector3.one;
+			scale.x = to.x / from.x;
+			scale.y = to.y / from.y;
+			scale.z = to.z / from.z;
+
+			switch (scaleMode) {
+			case ScaleMode.ScaleAndCrop:
+				scale.x = scale.y = scale.z = Mathf.Max(scale.x, scale.y);
+				break;
+
+			case ScaleMode.ScaleToFit:
+				scale.x = scale.y = scale.z = Mathf.Min(scale.x, scale.y);
+				break;
+
+			case ScaleMode.StretchToFill:
+				//Do nothing
+				break;
+
+			default:
+				Debug.LogException(new System.NotImplementedException("The Received ScaleMode." + scaleMode.ToString() + " is not implemented."));
+				break;
+			}
+
+			return scale;
+		}
+
 		/**
 		 * <summary>
 		 * Returns the pointwise product (Hadamard product) of two vectors
