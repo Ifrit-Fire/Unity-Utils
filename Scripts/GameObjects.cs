@@ -4,7 +4,7 @@ namespace Sawyer.Utils {
 	public static class GameObjects {
 		/**
 		 * <summary>
-		 * Returns /self/ or new instance if prefab.
+		 * Creates a new instance of itself if not instantiated yet.
 		 * </summary>
 		 */
 		public static void Instantiate(this GameObject self) {

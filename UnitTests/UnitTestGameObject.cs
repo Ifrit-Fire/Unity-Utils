@@ -9,7 +9,7 @@ namespace Sawyer.Utils.UnitTest {
 
 		private string mHeader = "GameObjectTests";
 
-		void Start() {
+		private void Start() {
 			string result = mHeader;
 			int oldInstance = sceneGameObject.GetInstanceID();
 			sceneGameObject.Instantiate();
@@ -26,6 +26,7 @@ namespace Sawyer.Utils.UnitTest {
 			try {
 				GameObjects.Instantiate(mNull);
 			} catch (NullReferenceException e) {
+				e.ToString();   //Just to eliminate compile warning
 				coughtError = true;
 			}
 			if (!coughtError) {

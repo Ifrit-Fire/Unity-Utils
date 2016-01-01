@@ -1,7 +1,7 @@
+using System;
 using UnityEngine;
 
 namespace Sawyer.Utils {
-
 	public static class Vectors {
 		/**
 		* <summary>
@@ -9,6 +9,9 @@ namespace Sawyer.Utils {
 		* how the scaling should be performed.
 		* </summary>
 		*/
+
+		private delegate void Del(int x);
+
 		public static Vector2 ScaleFromTo(Vector2 from, Vector2 to, ScaleMode scaleMode = ScaleMode.StretchToFill) {
 			Vector2 scale = Vector2.one;
 			scale.x = to.x / from.x;
@@ -38,7 +41,8 @@ namespace Sawyer.Utils {
 		/**
 		* <summary>
 		* Returns the scaling vector needed to go from one vector to another vector. Optionally provide a ScaleMode to determine
-		* how the scaling should be performed.
+		* how the scaling should be performed. If attempting to find the scale results in an infinity or NAN result, Vector3.zero
+		* will be returned.
 		* </summary>
 		*/
 		public static Vector3 ScaleFromTo(Vector3 from, Vector3 to, ScaleMode scaleMode = ScaleMode.StretchToFill) {
@@ -46,6 +50,10 @@ namespace Sawyer.Utils {
 			scale.x = to.x / from.x;
 			scale.y = to.y / from.y;
 			scale.z = to.z / from.z;
+
+			Func<float, bool> isInvalid = (value) => { return float.IsInfinity(value) || float.IsNaN(value); };
+			if (isInvalid(scale.x) || isInvalid(scale.y) || isInvalid(scale.z))
+				return Vector3.zero;
 
 			switch (scaleMode) {
 			case ScaleMode.ScaleAndCrop:
